@@ -1,4 +1,4 @@
- var BANK_ACCOUNT_BALANCE = 0;
+ var bank_account_balance = 0;
  var TAX_RATE = 15;
  var PHONE_PRICE = 700;
  var ACESSORY_PRICE = 10;
@@ -17,16 +17,16 @@
  }
 
  function showBalance() {
-     console.log( "Your balance is " + formattingMoney(BANK_ACCOUNT_BALANCE) );
+     console.log( "Your balance is " + formattingMoney(bank_account_balance) );
  }
 
  function hasBalance(price){
-     return calcPrice(price) <= BANK_ACCOUNT_BALANCE;
+     return calcPrice(price) <= bank_account_balance;
  }
 
  function buyAPhone(){
      if(hasBalance(PHONE_PRICE)){
-         BANK_ACCOUNT_BALANCE = BANK_ACCOUNT_BALANCE - calcPrice(PHONE_PRICE);
+         bank_account_balance = bank_account_balance - calcPrice(PHONE_PRICE);
          console.log("Buying -> Cellphone costs:" + formattingMoney(calcPrice(PHONE_PRICE)));
          buyAcessory(calcPrice(PHONE_PRICE));
      } else {
@@ -43,7 +43,7 @@
         if(buy === "y"){
             if(TOTAL + calcPrice(ACESSORY_PRICE) <= SPENDING_THRESHOLD ){
                 if(hasBalance(ACESSORY_PRICE)){
-                    BANK_ACCOUNT_BALANCE = BANK_ACCOUNT_BALANCE - calcPrice(ACESSORY_PRICE);
+                    bank_account_balance = bank_account_balance - calcPrice(ACESSORY_PRICE);
                     console.log("Buying -> Acessory costs:" + formattingMoney(calcPrice(ACESSORY_PRICE)));
                     TOTAL = TOTAL + calcPrice(ACESSORY_PRICE);                    
                 } else {
@@ -64,8 +64,8 @@
  }
 
 do {
-  BANK_ACCOUNT_BALANCE = parseFloat(prompt( "Please set a valid balance:" ));
-} while (!isNumeric(BANK_ACCOUNT_BALANCE));
+  bank_account_balance = parseFloat(prompt( "Please set a valid balance:" ));
+} while (!isNumeric(bank_account_balance));
 
 showBalance();
 
