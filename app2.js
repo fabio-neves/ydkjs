@@ -49,7 +49,13 @@ BankAccount.prototype.getBalance = function() {
     return new Money(this.balance);
 };
 
+BankAccount.prototype.hasBalance = function(debitValue) {
+    return debitValue <= this.balance;
+};
+
 var ba = new BankAccount(10000);
+
+console.log(ba.balance);
 
 var balance = ba.credit(200).debit(100).getBalance();
 
